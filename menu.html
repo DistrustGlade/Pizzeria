@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css"> 
+  <script src="script.js"></script>
+  <script src="menu-script.js"></script>
+
+  <style>
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .pizza {
+      width: 30%;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .pizza img {
+      width: 100%;
+      height: 200px; 
+      object-fit: cover; 
+      border-radius: 5px;
+    }
+    
+    .dark-mode {
+      background-color: #1f1f1f;
+      color: #ffffff;
+    }
+
+    #darkmode-toggle {
+      font-size: 25px;
+      cursor: pointer;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+  </style>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const sr = ScrollReveal({
+        origin: 'top',
+        distance: '30px',
+        duration: 2000,
+        reset: true
+      });
+
+      sr.reveal('.pizza', {
+        interval: 200
+      });
+
+      let darkmodeToggle = document.querySelector('#darkmode-toggle');
+
+      darkmodeToggle.addEventListener('click', () => {
+        toggleDarkMode();
+      });
+
+      function toggleDarkMode() {
+        let body = document.body;
+
+        if (body.classList.contains('dark-mode')) {
+          body.classList.remove('dark-mode');
+        } else {
+          body.classList.add('dark-mode');
+        }
+      }
+
+      // Initially hide the dark mode icon
+      darkmodeToggle.style.display = 'none';
+
+      // Show the dark mode icon when scrolling up, hide when scrolling down
+      let lastScroll = 0;
+
+      window.addEventListener('scroll', () => {
+        let currentScroll = window.scrollY;
+
+        if (currentScroll > lastScroll) {
+          darkmodeToggle.style.display = 'none';
+        } else {
+          darkmodeToggle.style.display = 'block';
+        }
+
+        lastScroll = currentScroll;
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <h1>Pizza Menu</h1>
+
+  <button id="darkmode-toggle">🌙</button>
+
+  <div class="menu">
+    <div class="pizza">
+
+      <img src="Margheritta.jpg" alt="Margherita Pizza">
+      <h2>Margherita</h2>
+      <p>Fresh tomatoes, tomato sauce, mozzarella, basil</p>
+        
+    </div>
+    <div class="pizza">
+        
+        <img src="Cheese-pizza.jpg" alt="Cheese Pizza">
+        
+        <h2>Cheese</h2>
+        
+        <p>Mozzarella, tomato sauce, shredded cheese</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="BBQ Chicken.jpg" alt="BBQ Chicken">
+        
+        <h2>BBQ Chicken</h2>
+        
+        <p>Grilled chicken, BBQ sauce, red onions, mozzarella</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="Veggie-supreme.jpg" alt="Veggie">
+        
+        <h2>Veggie Supreme</h2>
+        
+        <p>Mushrooms, bell peppers, onions, black olives, mozzarella, tomato sauce</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="Paneer-tikka.jpg" alt="Paneer t ikka ">
+        
+        <h2>Paneer Tikka Pizza</h2>
+        
+        <p>Paneer chunks,Bell peppers, Onions, Creamy tikka sauce</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="mushroom-veggie.jpg" alt="Veg Extravaganza Pizza">
+        
+        <h2>Veg Extravaganza Pizza</h2>
+        
+        <p>Mushrooms, Corn, Capsicum, Olives</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="pepperoni.jpg" alt="Pepperoni Pizza">
+        
+        <h2>Pepperoni</h2>
+        
+        <p>Pepperoni, mozzarella, tomato sauce</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="pepperoni.jpg" alt="Pepperoni Pizza">
+        
+        <h2>Pepperoni</h2>
+        
+        <p>Pepperoni, mozzarella, tomato sauce</p>
+        
+        </div>
+        
+        <div class="pizza">
+        
+        <img src="pepperoni.jpg" alt="Pepperoni Pizza">
+        
+        <h2>Pepperoni</h2>
+        
+        <p>Pepperoni, mozzarella, tomato sauce</p>
+    </div>
+  </div>
+
+</body>
+</html>
+
